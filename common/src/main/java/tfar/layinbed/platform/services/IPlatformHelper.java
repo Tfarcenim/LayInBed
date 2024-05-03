@@ -1,5 +1,9 @@
 package tfar.layinbed.platform.services;
 
+import net.minecraft.server.level.ServerPlayer;
+import tfar.layinbed.network.client.S2CModPacket;
+import tfar.layinbed.network.server.C2SModPacket;
+
 public interface IPlatformHelper {
 
     /**
@@ -33,4 +37,10 @@ public interface IPlatformHelper {
 
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+
+    void sendToClient(S2CModPacket msg, ServerPlayer player);
+
+    void sendToServer(C2SModPacket msg);
+
+
 }
